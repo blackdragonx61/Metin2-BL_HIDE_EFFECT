@@ -40,7 +40,7 @@ void CEffectManager::HideOnSomeEffects(std::uint8_t Type, bool IsVisible)
 				return;
 #endif
 
-//Find
+//Find in void CEffectManager::CreateEffectInstance(DWORD dwInstanceIndex, DWORD dwID)
 	pEffectInstance->SetEffectDataPointer(pEffect);
 	
 ///Add
