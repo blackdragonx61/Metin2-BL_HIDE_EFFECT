@@ -9,9 +9,9 @@
 			self.showsalesTextButtonList.append(GetObject("salestext_off_button"))
 			
 #Add
-			if app.__BL_HIDE_EFFECT__:
-				for BLEffectNames in ('BuffEffect', 'SkillEffect'):
-					self.BLEffectGroupList.append(GetObject('BL_EFFECT_{}'.format(BLEffectNames)))
+			if app.__BL_HIDE_EFFECT__:			
+				for BLEffectNames in ('BUFF_EFFECT', 'SKILL_EFFECT'):
+					self.BLEffectGroupList.append(GetObject(BLEffectNames))
 					
 #Find
 		self.pvpModeButtonDict[player.PK_MODE_FREE].SAFE_SetEvent(self.__OnClickPvPModeFreeButton)
@@ -36,6 +36,6 @@
 		def __RefreshBLEffectButton(self):
 			for (Index, Button) in enumerate(self.BLEffectGroupList):
 				if systemSetting.GetBLEffectOption(Index):
-					Button.Down()
-				else:
 					Button.SetUp()
+				else:
+					Button.Down()

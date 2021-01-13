@@ -14,7 +14,7 @@ if app.__BL_HIDE_EFFECT__:
 				"text" : "Effects",
 				},
 				{
-					"name" : "BL_EFFECT_BuffEffect",
+					"name" : "BUFF_EFFECT",
 					"type" : "toggle_button",
 
 					"x" : LINE_DATA_X,
@@ -27,7 +27,7 @@ if app.__BL_HIDE_EFFECT__:
 					"down_image" : ROOT_PATH + "middle_button_03.sub",
 				},
 				{
-					"name" : "BL_EFFECT_SkillEffect",
+					"name" : "SKILL_EFFECT",
 					"type" : "toggle_button",
 
 					"x" : LINE_DATA_X+MIDDLE_BUTTON_WIDTH,
