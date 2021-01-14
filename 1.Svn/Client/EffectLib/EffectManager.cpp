@@ -19,13 +19,28 @@ bool CEffectManager::CanRenderFunction(CEffectInstance* pkEftInst) const
 			"d:/ymir work/pc/sura/effect/heuksin_loop.mse",
 			"d:/ymir work/pc/warrior/effect/gyeokgongjang_loop.mse",
 			"d:/ymir work/pc/warrior/effect/geom_sword_loop.mse",
+			"d:/ymir work/pc/warrior/effect/geom_spear_loop.mse",
 			"d:/ymir work/pc/assassin/effect/gyeonggong_loop.mse",
 		},
 	};
 
 	for (BYTE i = 0; i < CEffectManager::EFFECT_OPTION_MAX; i++)
-		if (GetEffectOption(i) && pkEftInst && pkEftInst->GetEffectDataPointer() && std::find(vEffectNames[i].begin(), vEffectNames[i].end(), pkEftInst->GetEffectDataPointer()->GetFileName()) != vEffectNames[i].end())
+	{
+		if (!GetEffectOption(i))
+			continue;
+
+		if (!pkEftInst)
+			break;
+
+		CEffectData* EffectData = pkEftInst->GetEffectDataPointer();
+		if (!EffectData)
+			break;
+
+		auto it = std::find(vEffectNames[i].begin(), vEffectNames[i].end(), EffectData->GetFileName());
+		if (it != vEffectNames[i].end())
 			return false;
+	}
+
 	return true;
 }
 #endif
